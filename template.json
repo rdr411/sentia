@@ -1,0 +1,207 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageAccounts_sentia_name": {
+            "defaultValue": "sentia",
+            "type": "String"
+        },
+        "virtualNetworks_subnet1_name": {
+            "defaultValue": "subnet1",
+            "type": "String"
+        },
+        "virtualNetworks_subnet2_name": {
+            "defaultValue": "subnet2",
+            "type": "String"
+        },
+        "virtualNetworks_subnet3_name": {
+            "defaultValue": "subnet3",
+            "type": "String"
+        },
+        "subnets_subnet1_name": {
+            "defaultValue": "subnet1",
+            "type": "String"
+        },
+        "subnets_default_name": {
+            "defaultValue": "default",
+            "type": "String"
+        },
+        "subnets_default_name_1": {
+            "defaultValue": "default",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "comments": "Generalized from resource: '/subscriptions/488efd6b-5dac-4eff-94d7-ae9b68f0e69b/resourceGroups/sentia/providers/Microsoft.Network/virtualNetworks/subnet1'.",
+            "type": "Microsoft.Network/virtualNetworks",
+            "name": "[parameters('virtualNetworks_subnet1_name')]",
+            "apiVersion": "2018-02-01",
+            "location": "westeurope",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "afc81c44-4589-4b62-b7d9-aee6266ff125",
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "172.16.0.0/12"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "[parameters('virtualNetworks_subnet1_name')]",
+                        "etag": "W/\"bccf091b-2e13-4bd1-9a2b-23e4a409c960\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "172.16.0.0/12"
+                        }
+                    }
+                ],
+                "virtualNetworkPeerings": [],
+                "enableDdosProtection": false,
+                "enableVmProtection": false
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/488efd6b-5dac-4eff-94d7-ae9b68f0e69b/resourceGroups/sentia/providers/Microsoft.Network/virtualNetworks/subnet2'.",
+            "type": "Microsoft.Network/virtualNetworks",
+            "name": "[parameters('virtualNetworks_subnet2_name')]",
+            "apiVersion": "2018-02-01",
+            "location": "westeurope",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "59b29d96-af78-433b-872a-1666a0caf619",
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "172.16.0.0/24"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "default",
+                        "etag": "W/\"0ee69a38-8502-44c0-9d9f-a5f7d31240d7\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "172.16.0.0/24"
+                        }
+                    }
+                ],
+                "virtualNetworkPeerings": [],
+                "enableDdosProtection": false,
+                "enableVmProtection": false
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/488efd6b-5dac-4eff-94d7-ae9b68f0e69b/resourceGroups/sentia/providers/Microsoft.Network/virtualNetworks/subnet3'.",
+            "type": "Microsoft.Network/virtualNetworks",
+            "name": "[parameters('virtualNetworks_subnet3_name')]",
+            "apiVersion": "2018-02-01",
+            "location": "westeurope",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "830628ea-c61b-483f-9eef-cf7bd761275d",
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "172.31.0.0/24"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "default",
+                        "etag": "W/\"2a899b28-3c40-4da4-be33-009e3c0f0f5f\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "172.31.0.0/24"
+                        }
+                    }
+                ],
+                "virtualNetworkPeerings": [],
+                "enableDdosProtection": false,
+                "enableVmProtection": false
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/488efd6b-5dac-4eff-94d7-ae9b68f0e69b/resourceGroups/sentia/providers/Microsoft.Storage/storageAccounts/sentia'.",
+            "type": "Microsoft.Storage/storageAccounts",
+            "sku": {
+                "name": "Standard_RAGRS",
+                "tier": "Standard"
+            },
+            "kind": "Storage",
+            "name": "[parameters('storageAccounts_sentia_name')]",
+            "apiVersion": "2017-10-01",
+            "location": "westeurope",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "networkAcls": {
+                    "bypass": "AzureServices",
+                    "virtualNetworkRules": [],
+                    "ipRules": [],
+                    "defaultAction": "Allow"
+                },
+                "supportsHttpsTrafficOnly": false,
+                "encryption": {
+                    "services": {
+                        "file": {
+                            "enabled": true
+                        },
+                        "blob": {
+                            "enabled": true
+                        }
+                    },
+                    "keySource": "Microsoft.Storage"
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/488efd6b-5dac-4eff-94d7-ae9b68f0e69b/resourceGroups/sentia/providers/Microsoft.Network/virtualNetworks/subnet1/subnets/subnet1'.",
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "name": "[concat(parameters('virtualNetworks_subnet1_name'), '/', parameters('subnets_subnet1_name'))]",
+            "apiVersion": "2018-02-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "172.16.0.0/12"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_subnet1_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/488efd6b-5dac-4eff-94d7-ae9b68f0e69b/resourceGroups/sentia/providers/Microsoft.Network/virtualNetworks/subnet2/subnets/default'.",
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "name": "[concat(parameters('virtualNetworks_subnet2_name'), '/', parameters('subnets_default_name'))]",
+            "apiVersion": "2018-02-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "172.16.0.0/24"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_subnet2_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/488efd6b-5dac-4eff-94d7-ae9b68f0e69b/resourceGroups/sentia/providers/Microsoft.Network/virtualNetworks/subnet3/subnets/default'.",
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "name": "[concat(parameters('virtualNetworks_subnet3_name'), '/', parameters('subnets_default_name_1'))]",
+            "apiVersion": "2018-02-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "172.31.0.0/24"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_subnet3_name'))]"
+            ]
+        }
+    ]
+}
